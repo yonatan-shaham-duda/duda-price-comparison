@@ -52,7 +52,7 @@ exports.getRawProducts = (req, res) => {
   });
 };
 
-exports.getAllProducts = (req, res) => {
+const renderProducts = () => {
   var list = [];
   products.forEach((site) => {
     site.products.forEach((product) => {
@@ -64,9 +64,13 @@ exports.getAllProducts = (req, res) => {
       list.push(listItem);
     });
   });
+  return list;
+};
+
+exports.getAllProducts = (req, res) => {
+  const body = renderProducts();
   res.status(200).json({
     status: "success",
-    results: list.length,
-    data: list,
+    data: body,
   });
 };
