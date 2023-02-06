@@ -56,9 +56,9 @@ exports.getAllProducts = (req, res) => {
   var list = [];
   products.forEach((site) => {
     site.products.forEach((product) => {
-      console.log(site);
       var listItem = product;
       listItem.siteName = site.siteName;
+      listItem.siteUrl = site.baseUrl;
       listItem.absolutPath =
         site.baseUrl + "product/" + product.seo.product_url;
       list.push(listItem);
