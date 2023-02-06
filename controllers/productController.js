@@ -63,8 +63,7 @@ const renderProductList = (req, res) => {
       list.push(flatten);
     });
   });
-
-  res.status(200).render("productList", { products: list });
+  res.status(200).render("home", { products: list });
 };
 
 exports.getAllProducts = (req, res) => {

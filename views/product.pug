@@ -1,2 +1,8 @@
-h3 #{product.name}
-div !{product.description}
+div.productCard
+    div
+        span.productName #{product.name} 
+        span.price $#{product.prices[0].price} 
+        a.purchase(href=product.absolutPath) Buy now
+    div !{product.description} 
+    div
+        img.mainImage(src=product.images[0].url)
