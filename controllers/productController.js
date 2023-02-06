@@ -4,6 +4,7 @@ const creds = require("./../dev-data/creds");
 const site = require("./siteController");
 
 var sites = site.sites;
+console.log(sites);
 
 var products = [];
 
@@ -19,6 +20,7 @@ const loadProductsBySiteName = (site) => {
     .then(function (response) {
       const siteProducts = {
         siteName: site.siteName,
+        businessName: site.businessName,
         baseUrl: site.url,
         results: response.data.results.length,
         products: response.data.results,
@@ -60,9 +62,12 @@ const renderProductList = (req, res) => {
       flatten.siteName = site.siteName;
       flatten.siteUrl = site.baseUrl;
       flatten.absolutPath = site.baseUrl + "product/" + product.seo.product_url;
+      flatten.storeUrl = site.baseUrl;
+      flatten.businessName = site.businessName;
       list.push(flatten);
     });
   });
+
   res.status(200).render("home", { products: list });
 };
 

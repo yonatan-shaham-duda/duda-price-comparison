@@ -1,8 +1,10 @@
 div.productCard
-    div
+    div.title
         span.productName #{product.name} 
         span.price $#{product.prices[0].price} 
         a.purchase(href=product.absolutPath) Buy now
+    div
+        a.business(href=product.storeUrl) #{product.businessName}
     div !{product.description} 
     div
         img.mainImage(src=product.images[0].url)
