@@ -52,28 +52,21 @@ exports.getRawProducts = (req, res) => {
   });
 };
 
-const renderProduct = (product, site) => {
-  var rendered = product;
-  rendered.siteName = site.siteName;
-  rendered.siteUrl = site.baseUrl;
-  rendered.absolutPath = site.baseUrl + "product/" + product.seo.product_url;
-  return rendered;
-};
-
-const renderProductList = () => {
+const renderProductList = (req, res) => {
   var list = [];
   products.forEach((site) => {
     site.products.forEach((product) => {
-      list.push(renderProduct(product, site));
+      var flatten = product;
+      flatten.siteName = site.siteName;
+      flatten.siteUrl = site.baseUrl;
+      flatten.absolutPath = site.baseUrl + "product/" + product.seo.product_url;
+      list.push(flatten);
     });
   });
-  return list;
+
+  res.status(200).render("productList", { products: list });
 };
 
 exports.getAllProducts = (req, res) => {
-  const body = renderProductList();
-  res.status(200).json({
-    status: "success",
-    data: body,
-  });
+  renderProductList(req, res);
 };
