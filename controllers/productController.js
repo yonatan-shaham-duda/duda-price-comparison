@@ -30,10 +30,14 @@ const loadProductsBySiteName = (siteName) => {
     });
 };
 
-const init = async () => {
+const loadAllProducts = () => {
   sites.forEach((site) => {
     loadProductsBySiteName(site.siteName);
   });
+};
+
+const init = async () => {
+  loadAllProducts();
 };
 
 init();
