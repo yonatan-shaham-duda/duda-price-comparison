@@ -1,4 +1,4 @@
-exports.getAllCategories = (req, res) => {
+exports.getAllProducts = (req, res) => {
   res.status(200).json({
     status: "success",
     results: 0,
