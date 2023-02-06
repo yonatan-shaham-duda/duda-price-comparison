@@ -1,14 +1,13 @@
 const axios = require("axios");
-const user = "76d14a7db3";
-const password = "jCGuUNhgN4Fw";
+const creds = require("./../dev-data/creds");
 var products;
 
 axios({
   method: "get",
   url: "https://api-sandbox.duda.co/api/sites/multiscreen/28aa80cd8a194babadd11e78897c7d15/ecommerce/products",
   auth: {
-    username: user,
-    password: password,
+    username: creds.user,
+    password: creds.password,
   },
 })
   .then(function (response) {
