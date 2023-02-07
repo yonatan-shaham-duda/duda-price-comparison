@@ -66,31 +66,33 @@ const flattenProducts = (products) => {
   return list;
 };
 
-const compareProducts = (flatProducts) => {
-  //console.log(`Comparing: ${flatProducts}`);
-  //console.log(`productsCompared: ${productsCompared}`);
+const groupProductsByName = (flatProducts) => {
   var list = [];
+  flatProducts.forEach((product) => {
+    console.log(product.name);
+    var productGroup = list.find((element) => element.name === product.name);
+    console.log(productGroup);
+    if (productGroup) {
+      productGroup.products.push(product);
+    } else {
+      var newGroup = {
+        name: product.name,
+        products: [product],
+      };
+      list.push(newGroup);
+    }
+  });
+  return list;
+};
+
+const compareProducts = (flatProducts) => {
   if (productsCompared.length === 0) {
-    flatProducts.forEach((product) => {
-      console.log(product.name);
-      var productGroup = list.find((element) => element.name === product.name);
-      console.log(productGroup);
-      if (productGroup) {
-        productGroup.products.push(product);
-      } else {
-        var newGroup = {
-          name: product.name,
-          products: [product],
-        };
-        list.push(newGroup);
-      }
-    });
-    productsCompared = list;
+    productsCompared = groupProductsByName(flatProducts);
   } else {
     list = productsCompared;
   }
-  console.log(`Conpared result ${list}`);
-  return list;
+  console.log(`Conpared result ${productsCompared}`);
+  return productsCompared;
 };
 
 const init = async () => {
