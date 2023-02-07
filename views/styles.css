@@ -28,6 +28,14 @@
   background-color: bisque;
 }
 
+.cheapest {
+  border-radius: 4px;
+  padding: 4px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+}
+
 .mainImage {
   width: 120px;
 }
