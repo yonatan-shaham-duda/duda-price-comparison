@@ -6,6 +6,19 @@ const site = require("./siteController");
 var sites = site.sites;
 
 var products = [];
+var flatProducts = [];
+var productsCompared = [];
+
+const addToCompared = (product) => {
+  var productGroup = productsCompared.find((element) => element.name);
+  if (productGroup) {
+    productGroup.push(product);
+  } else {
+    var newGroup = [product];
+    productsCompared.push(newGroup);
+  }
+  console.log(productsCompared);
+};
 
 const loadProductsBySiteName = (site) => {
   axios({
@@ -39,8 +52,25 @@ const loadAllProducts = () => {
   });
 };
 
+const flattenProducts = () => {
+  var list = [];
+  products.forEach((site) => {
+    site.products.forEach((product) => {
+      var flatten = product;
+      flatten.siteName = site.siteName;
+      flatten.siteUrl = site.baseUrl;
+      flatten.absolutPath = site.baseUrl + "product/" + product.seo.product_url;
+      flatten.storeUrl = site.baseUrl;
+      flatten.businessName = site.businessName;
+      list.push(flatten);
+    });
+  });
+  flatProducts = list;
+};
+
 const init = async () => {
   loadAllProducts();
+  flattenProducts();
 };
 
 init();
@@ -54,20 +84,7 @@ exports.getRawProducts = (req, res) => {
 };
 
 const renderProductList = (req, res) => {
-  var list = [];
-  products.forEach((site) => {
-    site.products.forEach((product) => {
-      var flatten = product;
-      flatten.siteName = site.siteName;
-      flatten.siteUrl = site.baseUrl;
-      flatten.absolutPath = site.baseUrl + "product/" + product.seo.product_url;
-      flatten.storeUrl = site.baseUrl;
-      flatten.businessName = site.businessName;
-      list.push(flatten);
-    });
-  });
-
-  res.status(200).render("home", { products: list });
+  res.status(200).render("home", { products: flattenProducts });
 };
 
 exports.getAllProducts = (req, res) => {
