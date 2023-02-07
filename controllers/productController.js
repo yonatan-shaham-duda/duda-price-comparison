@@ -82,8 +82,11 @@ const groupProductsByName = (flatProducts) => {
       list.push(newGroup);
     }
   });
+  //console.log(list);
   return list;
 };
+
+const markCheapestProduct = (group) => {};
 
 const sortProductsInGroup = (group) => {
   var temp = group.products;
@@ -99,7 +102,7 @@ const compareProducts = (flatProducts) => {
     productsCompared = groupProductsByName(flatProducts);
   }
   for (let i = 0; i < productsCompared.length; i++) {
-    productsCompared[i] = sortProductsInGroup(productsCompared[i]);
+    productsCompared[i].products = sortProductsInGroup(productsCompared[i]);
   }
   return productsCompared;
 };
@@ -129,6 +132,7 @@ exports.getFlatProducts = (req, res) => {
 
 exports.getComaredProducts = (req, res) => {
   const result = compareProducts(flattenProducts(products));
+  //console.log(result);
   res.status(200).json({
     status: "success",
     results: result.length,
