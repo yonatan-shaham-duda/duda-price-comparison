@@ -69,9 +69,9 @@ const flattenProducts = (products) => {
 const groupProductsByName = (flatProducts) => {
   var list = [];
   flatProducts.forEach((product) => {
-    console.log(product.name);
+    //console.log(product.name);
     var productGroup = list.find((element) => element.name === product.name);
-    console.log(productGroup);
+    //console.log(productGroup);
     if (productGroup) {
       productGroup.products.push(product);
     } else {
@@ -85,13 +85,22 @@ const groupProductsByName = (flatProducts) => {
   return list;
 };
 
+const sortProductsInGroup = (group) => {
+  var temp = group.products;
+  temp = temp.sort((p1, p2) =>
+    p1.price < p2.price ? -1 : p1.price > p2.price ? +1 : 0
+  );
+  console.log(`Sorted: ${temp}`);
+  return temp;
+};
+
 const compareProducts = (flatProducts) => {
   if (productsCompared.length === 0) {
     productsCompared = groupProductsByName(flatProducts);
-  } else {
-    list = productsCompared;
   }
-  console.log(`Conpared result ${productsCompared}`);
+  for (let i = 0; i < productsCompared.length; i++) {
+    productsCompared[i] = sortProductsInGroup(productsCompared[i]);
+  }
   return productsCompared;
 };
 
