@@ -4,7 +4,6 @@ const creds = require("./../dev-data/creds");
 const site = require("./siteController");
 
 var sites = site.sites;
-console.log(sites);
 
 var products = [];
 
