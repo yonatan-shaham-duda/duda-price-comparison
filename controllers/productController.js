@@ -145,7 +145,9 @@ exports.getComaredProducts = (req, res) => {
 };
 
 const renderProductList = (req, res) => {
-  res.status(200).render("home", { products: flattenProducts(products) });
+  res
+    .status(200)
+    .render("home", { groups: compareProducts(flattenProducts(products)) });
 };
 
 exports.getAllProducts = (req, res) => {

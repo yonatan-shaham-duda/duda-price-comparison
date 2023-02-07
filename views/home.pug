@@ -7,4 +7,5 @@ html
     body 
         h1 Home
         h2 Products
-        include productList.pug
+        each group in groups
+            include productList.pug
