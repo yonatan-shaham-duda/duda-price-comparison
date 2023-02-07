@@ -86,14 +86,15 @@ const groupProductsByName = (flatProducts) => {
   return list;
 };
 
-const markCheapestProduct = (group) => {};
-
-const sortProductsInGroup = (group) => {
-  var temp = group.products;
+const sortProductsInGroup = (products) => {
+  var temp = products;
   temp = temp.sort((p1, p2) =>
-    p1.price < p2.price ? -1 : p1.price > p2.price ? +1 : 0
+    p1.price < p2.price ? 1 : p1.price > p2.price ? -1 : 0
   );
-  console.log(`Sorted: ${temp}`);
+  temp.forEach((product) => {
+    product.orderByPrice = temp.indexOf(product);
+  });
+  //console.log(`Sorted: ${temp}`);
   return temp;
 };
 
@@ -102,7 +103,10 @@ const compareProducts = (flatProducts) => {
     productsCompared = groupProductsByName(flatProducts);
   }
   for (let i = 0; i < productsCompared.length; i++) {
-    productsCompared[i].products = sortProductsInGroup(productsCompared[i]);
+    productsCompared[i].products = sortProductsInGroup(
+      productsCompared[i].products
+    );
+    //productsCompared[i] = markCheapestProduct(productsCompared[i]);
   }
   return productsCompared;
 };
