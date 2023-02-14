@@ -1,13 +1,9 @@
 - var isCheapest = product.orderByPrice === 0
 div.productCard
     div.title
-        span.productName #{product.name} 
         span.price $#{product.prices[0].price} 
         a.purchase(href=product.absolutPath) Buy now 
         if isCheapest
             span.cheapest CHEAPEST
     div
         a.business(href=product.storeUrl) #{product.businessName}
-    div !{product.description} 
-    div
-        img.mainImage(src=product.images[0].url)
