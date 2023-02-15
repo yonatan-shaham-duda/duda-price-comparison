@@ -4,3 +4,6 @@ div
     img.mainImage(src=group.products[0].images[0].url)
 each product in group.products
     include product.pug
+script
+     | var group = !{JSON.stringify(group)};
+     | console.log(group)

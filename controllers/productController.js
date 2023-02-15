@@ -70,16 +70,19 @@ const groupProductsByName = (flatProducts) => {
   var list = [];
   flatProducts.forEach((product) => {
     var productGroup = list.find((element) => element.name === product.name);
-    if (productGroup) {
+    if (productGroup !== undefined) {
       productGroup.products.push(product);
+      //console.log(productGroup);
     } else {
       var newGroup = {
         name: product.name,
         products: [product],
       };
       list.push(newGroup);
+      //console.log(newGroup);
     }
   });
+  console.log(list);
   return list;
 };
 
@@ -95,12 +98,10 @@ const sortProductsInGroup = (products) => {
 
 const compareProducts = (flatProducts) => {
   var temp = groupProductsByName(flatProducts);
-  var temp2 = [];
-  for (let i = 0; i < temp.length; i++) {
-    temp2.push({ products: sortProductsInGroup(temp[i].products) });
-  }
-  productsCompared = temp2;
-  return temp2;
+  temp.forEach((group) => {
+    group.products = sortProductsInGroup(group.products);
+  });
+  return temp;
 };
 
 const init = async () => {
