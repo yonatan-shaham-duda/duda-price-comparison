@@ -7,3 +7,6 @@ div.productCard
             span.cheapest CHEAPEST
     div
         a.business(href=product.storeUrl) #{product.businessName}
+script
+     | var product = !{JSON.stringify(product)};
+     | console.log(product)
