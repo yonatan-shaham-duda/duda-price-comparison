@@ -33,7 +33,7 @@ const loadProductsBySiteName = (site) => {
       // handle error
       console.log(error);
     });
-  console.log(`Finished loading from ${site.siteName}.`);
+  //console.log(`Finished loading from ${site.siteName}.`);
 };
 
 const loadAllProducts = async () => {
