@@ -69,9 +69,7 @@ const flattenProducts = (products) => {
 const groupProductsByName = (flatProducts) => {
   var list = [];
   flatProducts.forEach((product) => {
-    //console.log(product.name);
     var productGroup = list.find((element) => element.name === product.name);
-    //console.log(productGroup);
     if (productGroup) {
       productGroup.products.push(product);
     } else {
@@ -82,7 +80,6 @@ const groupProductsByName = (flatProducts) => {
       list.push(newGroup);
     }
   });
-  //console.log(list);
   return list;
 };
 
@@ -92,34 +89,16 @@ const sortProductsInGroup = (products) => {
   );
   temp.forEach((product) => {
     product.orderByPrice = temp.indexOf(product);
-    // console.log(
-    //   `Index of price ${product.prices[0].price} is ${temp.indexOf(product)}`
-    // );
   });
-  // if (
-  //   temp[0].name === "Knotted Leather Handbag" ||
-  //   temp[0].name === "Blue Belt Bag"
-  // ) {
-  // console.log(`Sorted: ${temp[0].name}`);
-  // temp.forEach((e) =>
-  //   console.log(`${e.name} ${e.prices[0].price} ${e.orderByPrice}`)
-  // );
-  // }
-
   return temp;
 };
 
 const compareProducts = (flatProducts) => {
   var temp = groupProductsByName(flatProducts);
-  // if (productsCompared.length === 0) {
-  //   productsCompared = groupProductsByName(flatProducts);
-  // }
   var temp2 = [];
   for (let i = 0; i < temp.length; i++) {
     temp2.push({ products: sortProductsInGroup(temp[i].products) });
   }
-  // console.log(`Compared:`);
-  // productsCompared.forEach((e) => console.log(e));
   productsCompared = temp2;
   return temp2;
 };
@@ -149,7 +128,6 @@ exports.getFlatProducts = (req, res) => {
 
 exports.getComaredProducts = (req, res) => {
   const result = compareProducts(flattenProducts(products));
-  //console.log(result);
   res.status(200).json({
     status: "success",
     results: result.length,
