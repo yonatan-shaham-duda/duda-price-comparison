@@ -10,7 +10,7 @@ var flatProducts = [];
 var productsCompared = [];
 
 const loadProductsBySiteName = (site) => {
-  console.log(`Loading from ${site.siteName}`);
+  //console.log(`Loading from ${site.siteName}`);
   axios({
     method: "get",
     url: `https://api-sandbox.duda.co/api/sites/multiscreen/${site.siteName}/ecommerce/products`,
