@@ -87,28 +87,41 @@ const groupProductsByName = (flatProducts) => {
 };
 
 const sortProductsInGroup = (products) => {
-  var temp = products;
-  temp = temp.sort((p1, p2) =>
-    p1.price < p2.price ? 1 : p1.price > p2.price ? -1 : 0
+  var temp = products.sort((p1, p2) =>
+    p1.prices[0].price < p2.prices[0].price ? -1 : 1
   );
   temp.forEach((product) => {
     product.orderByPrice = temp.indexOf(product);
+    // console.log(
+    //   `Index of price ${product.prices[0].price} is ${temp.indexOf(product)}`
+    // );
   });
-  //console.log(`Sorted: ${temp}`);
+  // if (
+  //   temp[0].name === "Knotted Leather Handbag" ||
+  //   temp[0].name === "Blue Belt Bag"
+  // ) {
+  // console.log(`Sorted: ${temp[0].name}`);
+  // temp.forEach((e) =>
+  //   console.log(`${e.name} ${e.prices[0].price} ${e.orderByPrice}`)
+  // );
+  // }
+
   return temp;
 };
 
 const compareProducts = (flatProducts) => {
-  if (productsCompared.length === 0) {
-    productsCompared = groupProductsByName(flatProducts);
+  var temp = groupProductsByName(flatProducts);
+  // if (productsCompared.length === 0) {
+  //   productsCompared = groupProductsByName(flatProducts);
+  // }
+  var temp2 = [];
+  for (let i = 0; i < temp.length; i++) {
+    temp2.push({ products: sortProductsInGroup(temp[i].products) });
   }
-  for (let i = 0; i < productsCompared.length; i++) {
-    productsCompared[i].products = sortProductsInGroup(
-      productsCompared[i].products
-    );
-    //productsCompared[i] = markCheapestProduct(productsCompared[i]);
-  }
-  return productsCompared;
+  // console.log(`Compared:`);
+  // productsCompared.forEach((e) => console.log(e));
+  productsCompared = temp2;
+  return temp2;
 };
 
 const init = async () => {
