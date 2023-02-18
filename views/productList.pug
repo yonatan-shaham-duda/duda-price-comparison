@@ -1,12 +1,18 @@
-h3=group.name
-div.flex-container.card
-    div.info.flex-container 
-        div !{group.products[0].description}
-        div
-            img.mainImage(src=group.products[0].images[0].url)
-    div.list
-        each product in group.products
-            include product.pug
-script
-     | var group = !{JSON.stringify(group)};
-     | console.log(group)
+html 
+    head 
+        title Price Comparison Site
+        style
+            include styles.css
+    body
+        h3=group.name
+        div.flex-container.card
+            div.info.flex-container 
+                div !{group.products[0].description}
+                div
+                    img.mainImage(src=group.products[0].images[0].url)
+            div.list
+                each product in group.products
+                    include product.pug
+        script
+            | var group = !{JSON.stringify(group)};
+            | console.log(group)
