@@ -1,11 +1,10 @@
 - var isCheapest = product.orderByPrice === 0
-div.productCard
+div.card
     div.title
         span.price $#{product.prices[0].price} 
         a.purchase(href=product.absolutPath) Buy now 
         if isCheapest
             span.cheapest CHEAPEST
-    div
         a.business(href=product.storeUrl) #{product.businessName}
 script
      | var product = !{JSON.stringify(product)};

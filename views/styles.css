@@ -3,7 +3,7 @@
   font-weight: lighter;
 }
 
-.productCard {
+.card {
   border-width: 1px;
   border-color: #7a8891;
   border-style: solid;
@@ -42,4 +42,13 @@
 
 .business {
   font-style: italic;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-container > div {
+  width: 50%;
+  margin: 10px;
 }
