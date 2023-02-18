@@ -140,7 +140,6 @@ exports.getAllProducts = (req, res) => {
 };
 
 exports.getAProduct = (req, res) => {
-  console.log(req.params);
   const groups = compareProducts(flattenProducts(products));
   const group = groups.find(
     (e) => e.products[0].seo.product_url === req.params.productSlug
