@@ -1,4 +1,5 @@
-div.flex-card.card
+- var url = 'products/' + group.products[0].seo.product_url;
+a(href='/' + url): div.flex-card.card
     div
         img.mainImage(src=group.products[0].images[0].url).center
     h3=group.name
