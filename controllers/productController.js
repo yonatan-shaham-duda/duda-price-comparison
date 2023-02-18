@@ -145,8 +145,5 @@ exports.getAProduct = (req, res) => {
   const group = groups.find(
     (e) => e.products[0].seo.product_url === req.params.productSlug
   );
-  res.status(200).json({
-    status: "success",
-    group: group,
-  });
+  res.status(200).render("productList", { group: group });
 };

@@ -1,11 +1,17 @@
 - var isCheapest = product.orderByPrice === 0
-div.card
-    div.title
-        span.price $#{product.prices[0].price} 
-        a.purchase(href=product.absolutPath) Buy now 
-        if isCheapest
-            span.cheapest CHEAPEST
-        a.business(href=product.storeUrl) #{product.businessName}
-script
-     | var product = !{JSON.stringify(product)};
-     | console.log(product)
+html 
+    head 
+        title Price Comparison Site
+        style
+            include styles.css
+    body
+        div.card
+            div.title
+                span.price $#{product.prices[0].price} 
+                a.purchase(href=product.absolutPath) Buy now 
+                if isCheapest
+                    span.cheapest CHEAPEST
+                a.business(href=product.storeUrl) #{product.businessName}
+        script
+            | var product = !{JSON.stringify(product)};
+            | console.log(product)
