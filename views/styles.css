@@ -46,14 +46,15 @@
 
 .flex-container {
   display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-card {
+  width: 250px !important;
+  margin: 50px !important;
 }
 
 .flex-container > div {
   width: 50%;
-  margin: 10px;
-}
-
-.flex-card {
-  width: 25%;
   margin: 10px;
 }
