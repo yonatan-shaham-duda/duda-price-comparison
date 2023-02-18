@@ -10,7 +10,6 @@ var flatProducts = [];
 var productsCompared = [];
 
 const loadProductsBySiteName = (site) => {
-  //console.log(`Loading from ${site.siteName}`);
   axios({
     method: "get",
     url: `https://api-sandbox.duda.co/api/sites/multiscreen/${site.siteName}/ecommerce/products`,
@@ -33,18 +32,15 @@ const loadProductsBySiteName = (site) => {
       // handle error
       console.log(error);
     });
-  //console.log(`Finished loading from ${site.siteName}.`);
 };
 
 const loadAllProducts = async () => {
-  console.log("start loading");
   await sites.forEach(async (site) => {
     loadProductsBySiteName(site);
   });
 };
 
 const flattenProducts = (products) => {
-  console.log("Flattening");
   var list = [];
   if (flatProducts.length === 0) {
     products.forEach((site) => {
@@ -72,17 +68,14 @@ const groupProductsByName = (flatProducts) => {
     var productGroup = list.find((element) => element.name === product.name);
     if (productGroup !== undefined) {
       productGroup.products.push(product);
-      //console.log(productGroup);
     } else {
       var newGroup = {
         name: product.name,
         products: [product],
       };
       list.push(newGroup);
-      //console.log(newGroup);
     }
   });
-  console.log(list);
   return list;
 };
 
@@ -106,6 +99,7 @@ const compareProducts = (flatProducts) => {
 
 const init = async () => {
   await loadAllProducts();
+  console.log("Products loaded.");
 };
 
 init();
