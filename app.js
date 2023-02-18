@@ -9,9 +9,9 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.status(200).render("home");
-});
-app.use("/api/v1/products", productsRouter);
+// app.get("/", (req, res) => {
+//   res.status(200).render("home");
+// });
+app.use("/", productsRouter);
 
 module.exports = app;

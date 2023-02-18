@@ -138,3 +138,10 @@ const renderProductList = (req, res) => {
 exports.getAllProducts = (req, res) => {
   renderProductList(req, res);
 };
+
+exports.getAProduct = (req, res) => {
+  console.log(req.params);
+  res.status(200).json({
+    status: "success",
+  });
+};
