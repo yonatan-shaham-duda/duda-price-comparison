@@ -7,7 +7,6 @@ var sites = site.sites;
 
 var products = [];
 var flatProducts = [];
-var productsCompared = [];
 
 const loadProductsBySiteName = (site) => {
   axios({
