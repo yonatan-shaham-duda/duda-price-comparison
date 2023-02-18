@@ -51,7 +51,8 @@
 
 .flex-card {
   width: 250px !important;
-  margin: 50px !important;
+  margin-right: 50px !important;
+  margin-left: 50px !important;
 }
 
 .flex-container > div {
@@ -67,4 +68,5 @@
 
 a {
   all: unset;
+  cursor: pointer;
 }
