@@ -7,5 +7,6 @@ html
     body 
         h1 Home
         h2 Products
-        each group in groups
-            include productList.pug
+        div.flex-container
+            each group in groups
+                include list-card.pug
