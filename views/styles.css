@@ -3,6 +3,23 @@
   font-weight: lighter;
 }
 
+.center {
+  display: block;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+.middle {
+  display: block;
+  margin-bottom: auto !important;
+  margin-top: auto !important;
+}
+
 .card {
   border-width: 1px;
   border-color: #7a8891;
@@ -20,6 +37,35 @@
   font-size: medium;
   color: green;
   font-weight: bold;
+}
+
+.bestPrice {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.buyButton {
+  border-style: none;
+  border-radius: 100rem;
+  width: 100%;
+  text-align: center;
+  background-color: red;
+  border-color: red;
+  border-style: solid;
+  color: white;
+
+  font-size: x-large;
+  font-weight: bold;
+  padding: 16px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.buyButton:hover {
+  color: red;
+  background-color: white;
+  border-color: red;
+  border-style: solid;
 }
 
 .purchase {
@@ -42,9 +88,6 @@
 
 .singleImage {
   max-height: 400px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .business {
@@ -77,15 +120,4 @@
 .flex-container > div {
   width: auto;
   margin: 10px;
-}
-
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-a {
-  all: unset;
-  cursor: pointer;
 }

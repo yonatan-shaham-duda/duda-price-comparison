@@ -5,12 +5,15 @@ html
             include styles.css
     body
         div.flex-container
-            div.flex-sixty
-                img.singleImage(src=group.products[0].images[0].url)
-            div.flex-thirty
+            div.flex-sixty.middle
+                img.singleImage.center(src=group.products[0].images[0].url)
+            div.flex-thirty.middle
                 div
-                    div=group.name
+                    h1=group.name
                     div !{group.products[0].description}
+                    div.bestPrice Best price: $555
+                    div 
+                        button.buyButton BUY NOW
         
         //- h3=group.name
         //- div.flex-container.card
