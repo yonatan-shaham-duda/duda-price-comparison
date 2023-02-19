@@ -1,4 +1,3 @@
-- var 
 html 
     head 
         title=group.name
@@ -12,7 +11,7 @@ html
                 div
                     h1=group.name
                     div !{group.products[0].description}
-                    div.bestPrice Best price: $555
-                    div 
-                        button.buyButton BUY NOW
+                    div.bestPrice Best price: $!{group.cheapest.price}
+                    a(href=group.cheapest.url): div.clickable
+                        button.buyButton.clickable BUY NOW
         

@@ -1,4 +1,5 @@
 const axios = require("axios");
+const { group } = require("console");
 const creds = require("./../dev-data/creds");
 
 const site = require("./siteController");
@@ -92,6 +93,14 @@ const compareProducts = (flatProducts) => {
   var temp = groupProductsByName(flatProducts);
   temp.forEach((group) => {
     group.products = sortProductsInGroup(group.products);
+  });
+  temp.forEach((group) => {
+    const cheapestProduct = group.products.find((e) => e.orderByPrice === 0);
+    group.cheapest = {
+      price: cheapestProduct.prices[0].price,
+      url: cheapestProduct.absolutPath,
+      businessName: cheapestProduct.businessName,
+    };
   });
   return temp;
 };
