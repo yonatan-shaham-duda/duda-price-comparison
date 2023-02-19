@@ -1,6 +1,6 @@
 - var url = 'products/' + group.products[0].seo.product_url;
 div.flex-card.card
     a(href='/' + url): div
-        img.mainImage(src=group.products[0].images[0].url).center
+        img.cardImage(src=group.products[0].images[0].url).center
     a(href='/' + url): h3=group.name
     a(href='/' + url): div !{group.products[0].description}
