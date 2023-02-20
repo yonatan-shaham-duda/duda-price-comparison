@@ -80,9 +80,8 @@ const groupProductsByName = (flatProducts) => {
 };
 
 const sortProductsInGroup = (products) => {
-  var temp = products.sort((p1, p2) =>
-    p1.prices[0].price < p2.prices[0].price ? -1 : 1
-  );
+  var temp = products.sort((p1, p2) => p1.prices[0].price - p2.prices[0].price);
+  temp.forEach((e) => console.log(`${e.prices[0].price} ${e.businessName}`));
   temp.forEach((product) => {
     product.orderByPrice = temp.indexOf(product);
   });
