@@ -1,12 +1,17 @@
 [
   {
-    "businessName": "High Street Ecomm",
+    "businessName": "Blue store",
     "siteName": "28aa80cd8a194babadd11e78897c7d15",
-    "url": "https://store-1.sandbox.multiscreensite.com/"
+    "url": "http://blue-store.sandbox.multiscreensite.com/"
   },
   {
-    "businessName": "Suburb mall",
+    "businessName": "Yellow store",
     "siteName": "6cb9a2fd9c0a4f31954f642c3153e061",
-    "url": "http://store-3.sandbox.multiscreensite.com/"
+    "url": "http://yellow-store.sandbox.multiscreensite.com/"
+  },
+  {
+    "businessName": "Red store",
+    "siteName": "169377dedb3946658bb1c93b8bf5f929",
+    "url": "https://red-store.sandbox.multiscreensite.com/"
   }
 ]
