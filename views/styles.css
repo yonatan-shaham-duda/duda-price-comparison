@@ -139,3 +139,12 @@ a {
   width: auto;
   margin: 10px;
 }
+
+th {
+  text-align: left;
+}
+
+td {
+  min-width: 150;
+  min-height: 80px;
+}

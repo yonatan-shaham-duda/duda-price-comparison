@@ -19,6 +19,12 @@ html
             div 
                 h3 Price Comparison
                 div
-                    each product in group.products 
-                        include product.pug
+                    table
+                        tr 
+                            th Sold by 
+                            th Price 
+                            th
+                            th 
+                        each product in group.products 
+                            include product.pug
         
