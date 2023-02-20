@@ -4,14 +4,21 @@ html
         style
             include styles.css
     body
-        div.flex-container
-            div.flex-sixty.middle
-                img.singleImage.center(src=group.products[0].images[0].url)
-            div.flex-thirty.middle
+        div.container
+            include header.pug
+            div.flex-container
+                div.flex-sixty.middle
+                    img.singleImage.center(src=group.products[0].images[0].url)
+                div.flex-thirty.middle
+                    div
+                        h1=group.name
+                        div !{group.products[0].description}
+                        div.bestPrice Best price: $!{group.cheapest.price}
+                        a(href=group.cheapest.url): div.clickable
+                            button.buyButton.clickable BUY NOW on !{group.cheapest.businessName}
+            div 
+                h3 Price Comparison
                 div
-                    h1=group.name
-                    div !{group.products[0].description}
-                    div.bestPrice Best price: $!{group.cheapest.price}
-                    a(href=group.cheapest.url): div.clickable
-                        button.buyButton.clickable BUY NOW
+                    each product in group.products 
+                        include product.pug
         

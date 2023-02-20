@@ -5,8 +5,10 @@ html
         style
             include styles.css
     body 
-        h1 Home
-        h2 Products
-        div.flex-container
-            each group in groups
-                include list-card.pug
+        div.container
+            include header.pug
+            div.container
+                h2 Products
+                div.flex-container
+                    each group in groups
+                        include list-card.pug

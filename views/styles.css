@@ -19,9 +19,22 @@ a {
 }
 
 .middle {
-  display: block;
-  margin-bottom: auto !important;
-  margin-top: auto !important;
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  background-color: #f66035;
+}
+
+.in-headr {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.container {
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .card {
@@ -29,7 +42,7 @@ a {
   border-color: #7a8891;
   border-style: solid;
   border-radius: 4px;
-  padding: 8px;
+  padding: 4px;
   margin: 4px;
 }
 
@@ -106,8 +119,8 @@ a {
 
 .flex-card {
   width: 250px !important;
-  margin-right: 50px !important;
-  margin-left: 50px !important;
+  margin-right: 32px !important;
+  margin-left: 32px !important;
 }
 
 .flex-sixty {
